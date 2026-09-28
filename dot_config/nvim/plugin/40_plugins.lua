@@ -195,6 +195,7 @@ later(function()
     },
     picker = { name = 'mini.pick' }, -- integrates with the picker you already have
   })
+  vim.opt.conceallevel = 2
 end)
 
 later(function()
