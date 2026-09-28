@@ -15,6 +15,8 @@ Config.now(function()
     no_italic = true,
     term_colors = true,
   })
+
+  vim.cmd.colorscheme('catppuccin')
 end)
 
 now_if_args(function()

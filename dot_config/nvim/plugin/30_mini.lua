@@ -54,17 +54,27 @@ later(function()
   require('mini.map').setup()
 end)
 
-later(function()
-  -- github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-pairs.md 
+now_if_args(function()
+  -- github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-completion.md
   require('mini.completion').setup()
 end)
 
 later(function()
-  -- github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-completion.md
+  -- github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-pairs.md
   require('mini.pairs').setup()
 end)
 
 later(function()
-  -- github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-pick.md 
+  -- github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-pick.md
   require('mini.pick').setup()
+end)
+
+later(function()
+  -- github.com/nvim-mini/mini.nvim/blob/main/readmes/nvim-statusline.md
+  require('mini.statusline').setup()
+end)
+
+later(function()
+  -- github.com/nvim-mini/mini.nvim/blob/main/readmes/nvim-icons.md
+  require('mini.icons').setup()
 end)
