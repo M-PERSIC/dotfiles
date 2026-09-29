@@ -15,6 +15,7 @@
 # flatpak "com.visualstudio.code"
 # flatpak "org.godotengine.Godot", remote: "flathub-beta", url: "https://dl.flathub.org/beta-repo/"
 # flatpak "io.github.dvlv.boxbuddyrs", remote: "flathub-beta"
+cask "font-adwaita-mono-nerd-font"
 
 brew "bat"
 brew "chezmoi"
