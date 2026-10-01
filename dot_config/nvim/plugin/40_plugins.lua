@@ -206,3 +206,9 @@ later(function()
   add({ 'https://github.com/wurli/jet.nvim' })
   require('jet').setup({})
 end)
+
+later(function()
+  -- github.com/sphamba/smear-cursor.nvim
+  add({ 'https://github.com/sphamba/smear-cursor.nvim' })
+  require('smear_cursor').setup({})
+end)

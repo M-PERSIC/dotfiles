@@ -49,6 +49,10 @@
       "src": "https://github.com/obsidian-nvim/obsidian.nvim",
       "version": ">=0.0.0"
     },
+    "smear-cursor.nvim": {
+      "rev": "9f42dd38bea7f00cee52544b168a81dc2fbf57c3",
+      "src": "https://github.com/sphamba/smear-cursor.nvim"
+    },
     "zellij-nav.nvim": {
       "rev": "91cc2a642d8927ebde50ced5bf71ba470a0fc116",
       "src": "https://github.com/swaits/zellij-nav.nvim"
