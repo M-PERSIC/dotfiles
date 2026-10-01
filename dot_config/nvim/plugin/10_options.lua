@@ -63,7 +63,7 @@ vim.o.iskeyword = '@,48-57,_,192-255,-' -- Treat dash as `word` textobject part
 -- Pattern for a start of numbered list (used in `gw`). This reads as
 -- "Start of list item is: at least one special character (digit, -, +, *)
 -- possibly followed by punctuation (. or `)`) followed by at least one space".
-vim.o.formatlistpat = [[^\s*[0-9\-\+\*]\+[\.\)]*\s\+]] 
+vim.o.formatlistpat = [[^\s*[0-9\-\+\*]\+[\.\)]*\s\+]]
 
 -- Built-in completion
 vim.o.complete        = '.,w,b,kspell'                  -- Use less sources
@@ -86,9 +86,9 @@ local diagnostic_opts = {
   underline = { severity = { min = 'HINT', max = 'ERROR' } },
 
   -- Show more details immediately for errors on the current line
-  virtual_lines = false,
+  virtual_lines = true,
   virtual_text = {
-    current_line = true,
+    current_line = false,
     severity = { min = 'ERROR', max = 'ERROR' },
   },
 
@@ -99,4 +99,3 @@ local diagnostic_opts = {
 -- Use `later()` to avoid sourcing `vim.diagnostic` on startup
 Config.later(function() vim.diagnostic.config(diagnostic_opts) end)
 -- stylua: ignore end
-
