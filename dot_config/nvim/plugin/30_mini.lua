@@ -52,7 +52,22 @@ end)
 
 later(function()
   -- github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-map.md
-  require('mini.map').setup()
+  local map = require('mini.map')
+  map.setup({
+    integrations = {
+      map.gen_integration.builtin_search(),
+      map.gen_integration.diagnostic(),
+      map.gen_integration.diff(),
+    },
+    symbols = {
+      encode = map.gen_encode_symbols.dot('4x2'),
+    },
+    window = {
+      focusable = true,
+    },
+  })
+
+  map.toggle()
 end)
 
 now_if_args(function()
