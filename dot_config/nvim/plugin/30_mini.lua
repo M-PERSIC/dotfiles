@@ -25,6 +25,7 @@ later(function()
   require('mini.indentscope').setup({
     draw = {
       animation = require('mini.indentscope').gen_animation.none(),
+      delay = 20,
     },
   })
 end)
@@ -77,4 +78,9 @@ end)
 later(function()
   -- github.com/nvim-mini/mini.nvim/blob/main/readmes/nvim-icons.md
   require('mini.icons').setup()
+end)
+
+now(function()
+  -- github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-starter.md
+  require('mini.starter').setup()
 end)
