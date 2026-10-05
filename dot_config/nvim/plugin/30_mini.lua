@@ -1,101 +1,22 @@
-local now, now_if_args, later = Config.now, Config.now_if_args, Config.later
-
-later(function()
-  -- github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-bracketed.md
-  require('mini.bracketed').setup()
-end)
-
-later(function()
-  -- github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-cmdline.md
-  require('mini.cmdline').setup()
-end)
-
-later(function()
-  -- github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-diff.md
-  require('mini.diff').setup()
-end)
-
-later(function()
-  -- github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-git.md
-  require('mini.git').setup()
-end)
-
-later(function()
-  -- github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-indentscope.md
-  require('mini.indentscope').setup({
-    draw = {
-      animation = require('mini.indentscope').gen_animation.none(),
-      delay = 20,
-    },
-  })
-end)
-
-later(function()
-  -- github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-move.md
-  require('mini.move').setup()
-end)
-
-later(function()
-  -- github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-align.md
-  require('mini.align').setup()
-end)
-
-later(function()
-  -- github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-comment.md
-  require('mini.comment').setup()
-end)
-
-later(function()
-  -- github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-cursorword.md
-  require('mini.cursorword').setup()
-end)
-
-later(function()
-  -- github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-map.md
-  local map = require('mini.map')
-  map.setup({
-    integrations = {
-      map.gen_integration.builtin_search(),
-      map.gen_integration.diagnostic(),
-      map.gen_integration.diff(),
-    },
-    symbols = {
-      encode = map.gen_encode_symbols.dot('4x2'),
-    },
-    window = {
-      focusable = true,
-    },
-  })
-
-  map.toggle()
-end)
-
-now_if_args(function()
-  -- github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-completion.md
-  require('mini.completion').setup()
-end)
-
-later(function()
-  -- github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-pairs.md
-  require('mini.pairs').setup()
-end)
-
-later(function()
-  -- github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-pick.md
-  require('mini.pick').setup()
-end)
-
-later(function()
-  -- github.com/nvim-mini/mini.nvim/blob/main/readmes/nvim-statusline.md
-  require('mini.statusline').setup()
-end)
-
-later(function()
-  -- github.com/nvim-mini/mini.nvim/blob/main/readmes/nvim-icons.md
-  require('mini.icons').setup()
-end)
-
-now(function()
-  -- github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-starter.md
-  require('mini.starter').setup()
-end)
+-- [nfnl] plugin/30_mini.fnl
+local now = _G.Config.now
+local now_if_args = _G.Config.now_if_args
+local later = _G.Config.later
+for plugin, schedule in pairs({["mini.align"] = later, ["mini.bracketed"] = later, ["mini.cmdline"] = later, ["mini.comment"] = later, ["mini.completion"] = now_if_args, ["mini.cursorword"] = later, ["mini.diff"] = later, ["mini.git"] = later, ["mini.icons"] = later, ["mini.move"] = later, ["mini.pairs"] = later, ["mini.pick"] = later, ["mini.starter"] = now, ["mini.statusline"] = later}) do
+  local function _1_()
+    local module = require(plugin)
+    return module.setup()
+  end
+  schedule(_1_)
+end
+local function _2_()
+  local indentscope = require("mini.indentscope")
+  return indentscope.setup({draw = {animation = indentscope.gen_animation.none(), delay = 20}})
+end
+later(_2_)
+local function _3_()
+  local map = require("mini.map")
+  map.setup({integrations = {map.gen_integration.builtin_search(), map.gen_integration.diagnostic(), map.gen_integration.diff()}, symbols = {encode = map.gen_encode_symbols.dot("4x2")}, window = {focusable = true}})
+  return map.toggle()
+end
+return later(_3_)
