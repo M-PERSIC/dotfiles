@@ -28,6 +28,10 @@
       "rev": "561751e839b99a4baca36b9d963166b66d2536a6",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
+    "nfnl": {
+      "rev": "abf41f588ee6e3612816ec70402a4b182ddbbd51",
+      "src": "https://github.com/Olical/nfnl"
+    },
     "nvim": {
       "rev": "edefef779ab08ce1a4a404713e3012b0d202bd35",
       "src": "https://github.com/catppuccin/nvim"

@@ -1,7 +1,7 @@
 local add = vim.pack.add
-local now_if_args, later = Config.now_if_args, Config.later
+local now, now_if_args, later = Config.now, Config.now_if_args, Config.later
 
-Config.now(function()
+now(function()
   add({ 'https://github.com/catppuccin/nvim' })
 
   require('catppuccin').setup({
@@ -19,7 +19,7 @@ Config.now(function()
   vim.cmd.colorscheme('catppuccin')
 end)
 
-now_if_args(function()
+now(function()
   local ts_update = function() vim.cmd('TSUpdate') end
   Config.on_packchanged('nvim-treesitter', { 'update' }, ts_update, ':TSUpdate')
   add({
@@ -80,7 +80,7 @@ now_if_args(function()
   Config.new_autocmd('FileType', filetypes, ts_start, 'Start tree-sitter')
 end)
 
-now_if_args(function()
+now(function()
   add({
     'https://github.com/mason-org/mason.nvim',
     'https://github.com/neovim/nvim-lspconfig',
@@ -157,6 +157,7 @@ later(function()
       bash = { 'shfmt' },
       c = { 'clang_format' },
       cpp = { 'clang_format' },
+      fennel = { 'fnlfmt' },
       go = { 'goimports', 'gofmt' },
       json = { 'jq' },
       lua = { 'stylua' },
