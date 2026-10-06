@@ -126,8 +126,8 @@
                         ;; Show all diagnostics as underline (for their messages type `<Leader>ld`)
                         :underline {:severity {:min "HINT" :max "ERROR"}}
                         ;; Show more details immediately for errors on the current line
-                        :virtual_lines false
-                        :virtual_text {:current_line true
+                        :virtual_lines true
+                        :virtual_text {:current_line false
                                        :severity {:min "ERROR" :max "ERROR"}}
                         ;; Don't update diagnostics when typing
                         :update_in_insert false})

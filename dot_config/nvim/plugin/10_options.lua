@@ -13,7 +13,7 @@ local function _1_()
 end
 f = _1_
 Config.new_autocmd("FileType", nil, f, "Proper 'formatoptions'")
-local diagnostic_opts = {signs = {priority = 9999, severity = {min = "WARN", max = "ERROR"}}, underline = {severity = {min = "HINT", max = "ERROR"}}, virtual_text = {current_line = true, severity = {min = "ERROR", max = "ERROR"}}, update_in_insert = false, virtual_lines = false}
+local diagnostic_opts = {signs = {priority = 9999, severity = {min = "WARN", max = "ERROR"}}, underline = {severity = {min = "HINT", max = "ERROR"}}, virtual_lines = true, virtual_text = {severity = {min = "ERROR", max = "ERROR"}, current_line = false}, update_in_insert = false}
 local function _2_()
   return vim.diagnostic.config(diagnostic_opts)
 end
