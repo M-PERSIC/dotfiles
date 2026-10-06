@@ -1,4 +1,2 @@
 README.md
 
-.config/nvim/*.lua
-!.config/nvim/init.lua
