@@ -25,36 +25,36 @@
                                 ;; - Execute `:=require('nvim-treesitter').get_available()`
                                 ;; - Visit 'SUPPORTED_LANGUAGES.md' file at
                                 ;;   https://github.com/nvim-treesitter/nvim-treesitter/blob/main
-                                "bash"
-                                "c"
-                                "cmake"
-                                "cpp"
-                                "css"
-                                "dockerfile"
-                                "fennel"
-                                "go"
-                                "gomod"
-                                "gosum"
-                                "gowork"
-                                "html"
-                                "javascript"
-                                "jinja"
-                                "json"
-                                "julia"
-                                "lua"
-                                "make"
-                                "markdown"
-                                "mermaid"
-                                "powershell"
-                                "python"
-                                "rust"
-                                "ssh_config"
-                                "terraform"
-                                "toml"
-                                "typescript"
-                                "typst"
-                                "vimdoc"
-                                "yaml"]
+                                :bash
+                                :c
+                                :cmake
+                                :cpp
+                                :css
+                                :dockerfile
+                                :fennel
+                                :go
+                                :gomod
+                                :gosum
+                                :gowork
+                                :html
+                                :javascript
+                                :jinja
+                                :json
+                                :julia
+                                :lua
+                                :make
+                                :markdown
+                                :mermaid
+                                :powershell
+                                :python
+                                :rust
+                                :ssh_config
+                                :terraform
+                                :toml
+                                :typescript
+                                :typst
+                                :vimdoc
+                                :yaml]
                      isnt-installed (fn [lang]
                                       (= (length (vim.api.nvim_get_runtime_file (.. "parser/"
                                                                                     lang
@@ -82,30 +82,30 @@
                (let [mason (require :mason)]
                  (mason.setup))
                (let [mason-lspconfig (require :mason-lspconfig)]
-                 (mason-lspconfig.setup {:ensure_installed ["bashls"
-                                                            "clangd"
-                                                            "cssls"
-                                                            "dockerls"
-                                                            "fennel_ls"
-                                                            "gh_actions_ls"
-                                                            "gitlab_ci_ls"
-                                                            "golangci_lint_ls"
-                                                            "gopls"
-                                                            "html"
-                                                            "jinja_lsp"
-                                                            "jsonls"
-                                                            "julials"
-                                                            "lua_ls"
-                                                            "markdown_oxide"
-                                                            "powershell_es"
-                                                            "ruff"
-                                                            "rumdl"
-                                                            "rust_analyzer"
-                                                            "terraformls"
-                                                            "tinymist"
-                                                            "ts_ls"
-                                                            "ty"
-                                                            "yamlls"]
+                 (mason-lspconfig.setup {:ensure_installed [:bashls
+                                                            :clangd
+                                                            :cssls
+                                                            :dockerls
+                                                            :fennel_ls
+                                                            :gh_actions_ls
+                                                            :gitlab_ci_ls
+                                                            :golangci_lint_ls
+                                                            :gopls
+                                                            :html
+                                                            :jinja_lsp
+                                                            :jsonls
+                                                            :julials
+                                                            :lua_ls
+                                                            :markdown_oxide
+                                                            :powershell_es
+                                                            :ruff
+                                                            :rumdl
+                                                            :rust_analyzer
+                                                            :terraformls
+                                                            :tinymist
+                                                            :ts_ls
+                                                            :ty
+                                                            :yamlls]
                                          ;; automatic_enable defaults to true: every server above gets vim.lsp.enable()'d
                                          }))
                ;; lua_ls: recognize `vim` as a global when editing this Neovim config
@@ -118,7 +118,7 @@
                ;; since it's meant to sit alongside yamlls, not replace it
                (Config.new_autocmd ["BufRead" "BufNewFile"]
                                    "*.gitlab-ci*.{yml,yaml}"
-                                   (fn [] (set vim.bo.filetype "yaml.gitlab"))
+                                   (fn [] (set vim.bo.filetype :yaml.gitlab))
                                    "Detect GitLab CI YAML")))
 
 ;; Formatting
@@ -140,20 +140,19 @@
                                               :sh ["shfmt"]
                                               :toml ["tombi"]}}))))
 
-;; github.com/carlos-algms/agentic.nvim
+;; Agentic chat interface via ACP
 (later (fn []
          (add ["https://github.com/carlos-algms/agentic.nvim"])
          (let [agentic (require :agentic)]
-           (agentic.setup {;; built-in: claude-agent-acp | gemini-acp | codex-acp | opencode-acp | cursor-acp | ...
-                           :provider "cursor-acp"}))))
+           (agentic.setup {:provider "cursor-acp"}))))
 
-;; github.com/swaits/zellij-nav.nvim
+;; Seamless navigation between Neovim windows and Zellij panes
 (later (fn []
          (add ["https://github.com/swaits/zellij-nav.nvim"])
          (let [zellij-nav (require :zellij-nav)]
            (zellij-nav.setup))))
 
-;; github.com/obsidian-nvim/obsidian.nvim
+;; Write and navigate Obsidian vaults
 (later (fn []
          (add [{:src "https://github.com/obsidian-nvim/obsidian.nvim"
                 :version (vim.version.range "*")}])
@@ -166,13 +165,13 @@
                             :picker {:name "mini.pick"}}))
          (set vim.opt.conceallevel 2)))
 
-;; github.com/wurli/jet.nvim
+;; Jupyter client
 (later (fn []
          (add ["https://github.com/wurli/jet.nvim"])
          (let [jet (require :jet)]
            (jet.setup))))
 
-;; github.com/sphamba/smear-cursor.nvim
+;; Smear effect for the cursor
 (later (fn []
          (add ["https://github.com/sphamba/smear-cursor.nvim"])
          (let [smear-cursor (require :smear_cursor)]
