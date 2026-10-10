@@ -75,18 +75,12 @@ local function _9_()
 end
 later(_9_)
 local function _10_()
-  add({"https://github.com/carlos-algms/agentic.nvim"})
-  local agentic = require("agentic")
-  return agentic.setup({provider = "cursor-acp"})
-end
-later(_10_)
-local function _11_()
   add({"https://github.com/swaits/zellij-nav.nvim"})
   local zellij_nav = require("zellij-nav")
   return zellij_nav.setup()
 end
-later(_11_)
-local function _12_()
+later(_10_)
+local function _11_()
   add({{src = "https://github.com/obsidian-nvim/obsidian.nvim", version = vim.version.range("*")}})
   do
     local obsidian = require("obsidian")
@@ -95,16 +89,41 @@ local function _12_()
   vim.opt.conceallevel = 2
   return nil
 end
-later(_12_)
-local function _13_()
+later(_11_)
+local function _12_()
   add({"https://github.com/wurli/jet.nvim"})
   local jet = require("jet")
   return jet.setup()
 end
-later(_13_)
-local function _14_()
+later(_12_)
+local function _13_()
   add({"https://github.com/sphamba/smear-cursor.nvim"})
   local smear_cursor = require("smear_cursor")
   return smear_cursor.setup()
 end
-return later(_14_)
+later(_13_)
+local function _14_()
+  add({"https://github.com/MeanderingProgrammer/render-markdown.nvim"})
+  local render_markdown = require("render-markdown")
+  return render_markdown.setup()
+end
+later(_14_)
+local function _15_()
+  add({"https://github.com/danymat/neogen"})
+  local neogen = require("neogen")
+  return neogen.setup()
+end
+later(_15_)
+local function _16_()
+  add({"https://github.com/hakonharnes/img-clip.nvim"})
+  local img_clip = require("img-clip")
+  return img_clip.setup()
+end
+later(_16_)
+local function _17_()
+  add({"https://github.com/saghen/blink.lib", "https://github.com/saghen/blink.cmp"})
+  local blink = require("blink.cmp")
+  blink.build():pwait()
+  return blink.setup({signature = {enabled = true}, completion = {ghost_text = {enabled = true}}})
+end
+return later(_17_)

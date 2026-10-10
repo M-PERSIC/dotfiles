@@ -6,14 +6,18 @@
                                :mini.align later
                                ;; Go forward/backward with square brackets
                                :mini.bracketed later
+                               ;; Remove buffers
+                               :mini.bufremove later
                                ;; Command line tweaks
                                :mini.cmdline later
                                ;; Comment lines
                                :mini.comment later
                                ;; Completion and signature help
-                               :mini.completion now_if_args
+                               ;; :mini.completion now_if_args
                                ;; Autohighlight word under cursor
                                :mini.cursorword later
+                               ;; Work with diff hunks
+                               :mini.diff later
                                ;; Work with diff hunks
                                :mini.diff later
                                ;; Git integration
@@ -26,10 +30,14 @@
                                :mini.pairs later
                                ;; Pick anything
                                :mini.pick later
+                               ;; Manage and expand snippets
+                               :mini.snippets later
                                ;; Start screen
                                :mini.starter now
                                ;; Statusline
-                               :mini.statusline later})]
+                               :mini.statusline later
+                               ;; Tabline
+                               :mini.tabline later})]
   (schedule (fn []
               (let [module (require plugin)]
                 (module.setup)))))

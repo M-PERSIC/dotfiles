@@ -105,7 +105,9 @@
                             ;; Use custom behavior
                             :completeopt "menuone,noselect,fuzzy,nosort"
                             ;; Limit sources delay
-                            :completetimeout 100})]
+                            :completetimeout 100
+                            ;; Display status line shared across all splits
+                            :laststatus 3})]
   (set (. vim.o option) value))
 
 ;; Autocommands
@@ -131,6 +133,8 @@
                                        :severity {:min "ERROR" :max "ERROR"}}
                         ;; Don't update diagnostics when typing
                         :update_in_insert false})
+
+(vim.lsp.inlay_hint.enable true)
 
 ;; Use `later()` to avoid sourcing `vim.diagnostic` on startup
 (Config.later (fn [] (vim.diagnostic.config diagnostic_opts)))

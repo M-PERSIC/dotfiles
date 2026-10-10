@@ -140,12 +140,6 @@
                                               :sh ["shfmt"]
                                               :toml ["tombi"]}}))))
 
-;; Agentic chat interface via ACP
-(later (fn []
-         (add ["https://github.com/carlos-algms/agentic.nvim"])
-         (let [agentic (require :agentic)]
-           (agentic.setup {:provider "cursor-acp"}))))
-
 ;; Seamless navigation between Neovim windows and Zellij panes
 (later (fn []
          (add ["https://github.com/swaits/zellij-nav.nvim"])
@@ -176,3 +170,39 @@
          (add ["https://github.com/sphamba/smear-cursor.nvim"])
          (let [smear-cursor (require :smear_cursor)]
            (smear-cursor.setup))))
+
+;; Markdown rendering
+;; Annotation generator
+(later (fn []
+         (add ["https://github.com/MeanderingProgrammer/render-markdown.nvim"])
+         (let [render-markdown (require :render-markdown)]
+           (render-markdown.setup))))
+
+;; Annotation generator
+(later (fn []
+         (add ["https://github.com/danymat/neogen"])
+         (let [neogen (require :neogen)]
+           (neogen.setup))))
+
+;; Extra lua functions (CodeCompanion dependency)
+(later (fn []
+         (add ["https://github.com/hakonharnes/img-clip.nvim"])
+         (let [img-clip (require :img-clip)]
+           (img-clip.setup))))
+
+;; Autocompletion
+(later (fn []
+         (add ["https://github.com/saghen/blink.lib"
+               "https://github.com/saghen/blink.cmp"])
+         (let [blink (require :blink.cmp)]
+           (: (blink.build) :pwait)
+           (blink.setup {:signature {:enabled true}
+                         :completion {:ghost_text {:enabled true}}}))))
+
+;; Agent interface
+; (later (fn []
+;          (add [{:src "https://github.com/olimorris/codecompanion.nvim"
+;                 :version (vim.version.range "^19.0.0")}])
+;          (let [codecompanion (require :codecompanion)]
+;            (codecompanion.setup {:interactions {:chat {:adapter "cursor_cli"
+;                                                        :opts {:completion_provider "blink"}}}}))))

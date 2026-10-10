@@ -2,7 +2,7 @@
 local now = _G.Config.now
 local now_if_args = _G.Config.now_if_args
 local later = _G.Config.later
-for plugin, schedule in pairs({["mini.align"] = later, ["mini.bracketed"] = later, ["mini.cmdline"] = later, ["mini.comment"] = later, ["mini.completion"] = now_if_args, ["mini.cursorword"] = later, ["mini.diff"] = later, ["mini.git"] = later, ["mini.icons"] = later, ["mini.move"] = later, ["mini.pairs"] = later, ["mini.pick"] = later, ["mini.starter"] = now, ["mini.statusline"] = later}) do
+for plugin, schedule in pairs({["mini.align"] = later, ["mini.bracketed"] = later, ["mini.bufremove"] = later, ["mini.cmdline"] = later, ["mini.comment"] = later, ["mini.cursorword"] = later, ["mini.diff"] = later, ["mini.git"] = later, ["mini.icons"] = later, ["mini.move"] = later, ["mini.pairs"] = later, ["mini.pick"] = later, ["mini.snippets"] = later, ["mini.starter"] = now, ["mini.statusline"] = later, ["mini.tabline"] = later}) do
   local function _1_()
     local module = require(plugin)
     return module.setup()
